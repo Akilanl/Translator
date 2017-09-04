@@ -5,11 +5,11 @@
   <div class="col-lg-3">
     <div class="input-group">
       <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">English <span class="caret"></span></button>
-        <ul class="dropdown-menu">
-          <li>English</li>
-          <li>Spanish</li>
-          <li>German</li>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{source_lang}} <span class="caret"></span></button>
+        <ul class="dropdown-menu" id="slist" (click)="sselected($event)">
+          <li value="English"><a href="#">English</a></li>
+          <li value="Spanish"><a href="#">Spanish</a></li>
+          <li value="German"><a href="#">German</a></li>
          </ul>
       </div><!-- /btn-group -->
       <input type="text" class="form-control" aria-label="...">
@@ -19,11 +19,11 @@
     <div class="input-group">
       <input type="text" class="form-control" aria-label="...">
       <div class="input-group-btn">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Spanish <span class="caret"></span></button>
-        <ul class="dropdown-menu dropdown-menu-right">
-          <li>Spanish</li>
-          <li>English</li>
-          <li>German</li>
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{target_lang}} <span class="caret"></span></button>
+        <ul class="dropdown-menu dropdown-menu-right" id="tlist" (click)="dselected($event)">
+          <li value="Spanish"><a href="#">Spanish</a></li>
+          <li value="English"><a href="#">English</a></li>
+          <li value="German"><a href="#">German</a></li>
         </ul>
       </div><!-- /btn-group -->
     </div><!-- /input-group -->

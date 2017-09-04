@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  source_lang = 'English';
+  target_lang = 'Spanish';
+
+  dselected(event: any) {
+    this.target_lang = event.target.text;
+  }
+  sselected(event: any) {
+    this.source_lang = event.target.text;
+  }
 }
