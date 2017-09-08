@@ -12,12 +12,12 @@
           <li value="German"><a href="#">German</a></li>
          </ul>
       </div><!-- /btn-group -->
-      <input type="text" class="form-control" aria-label="...">
+      <input type="text" class="form-control" aria-label="..." [(ngModel)]='input_val'>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
   <div class="col-lg-3">
     <div class="input-group">
-      <input type="text" class="form-control" aria-label="...">
+      <input type="text" class="form-control" aria-label="..." [(ngModel)]='output_val'>
       <div class="input-group-btn">
         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{target_lang}} <span class="caret"></span></button>
         <ul class="dropdown-menu dropdown-menu-right" id="tlist" (click)="dselected($event)">
@@ -29,6 +29,6 @@
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
   <div class-lg-3>
-      <button type="button" class="btn btn-default">Convert</button>
+      <button type="button" class="btn btn-default"(click)="convert()">Convert</button>
   </div>
 </div><!-- /.row -->

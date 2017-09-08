@@ -1,5 +1,7 @@
-import { Component } from '@angular/core';
+import { Component,Input } from '@angular/core';
 import { TranslateAPIService} from './translate-api.service';
+import {Observable} from 'rxjs/Observable';
+import 'rxjs/add/observable/forkJoin';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,11 @@ export class AppComponent {
   output_val = '';
   source_lang = 'English';
   target_lang = 'Spanish';
+  lang_map = {
+    English : 'en',
+    Spanish : 'es',
+    German : 'de',
+  };
 
   constructor(private serv: TranslateAPIService) {
     }
@@ -23,6 +30,11 @@ export class AppComponent {
     this.source_lang = event.target.text;
   }
   convert() {
-    this.res = this.serv.apicall(this.source_lang, 'en', 'es');
+    this.serv.apicall(this.input_val, this.lang_map[this.source_lang], this.lang_map[this.target_lang]).subscribe(resp => {
+      this.output_val = resp.text[0];
+    },
+      err => {
+         console.error(err);
+      });
   }
 }
