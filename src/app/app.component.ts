@@ -29,12 +29,8 @@ export class AppComponent {
   sselected(event: any) {
     this.source_lang = event.target.text;
   }
-  convert() {
-    this.serv.apicall(this.input_val, this.lang_map[this.source_lang], this.lang_map[this.target_lang]).subscribe(resp => {
-      this.output_val = resp.text[0];
-    },
-      err => {
-         console.error(err);
-      });
+   convert() {
+    this.serv.apicall(this.input_val, this.lang_map[this.source_lang], this.lang_map[this.target_lang]).then(data =>
+    this.output_val = data)
   }
 }
